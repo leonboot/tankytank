@@ -49,7 +49,7 @@ export class Tank {
         this.application.ticker.add(() => {
             if (this.tankBase !== null) {
                 this.tankBase.rotation =this.heading;
-                
+
                 this.coordinates.x = this.coordinates.x + this.speed * Math.sin(-this.tankBase.rotation);
                 this.coordinates.y = this.coordinates.y + this.speed * Math.cos(-this.tankBase.rotation);
                 
@@ -69,6 +69,7 @@ export class Tank {
                     (bullet.x !== null && (bullet.x < -50 || bullet.x > this.application.canvas.width + 50)) ||
                     (bullet.y !== null && (bullet.y < -50 || bullet.y > this.application.canvas.height + 50))
                  ) {
+                    bullet.remove(this.application);
                     this.bullets.splice(idx, 1);
                 }
             });

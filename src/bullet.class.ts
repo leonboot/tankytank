@@ -30,6 +30,12 @@ export class Bullet {
         }
     }
 
+    public remove(application: Application): void {
+        if (this.sprite) {
+            application.stage.removeChild(this.sprite);
+        }
+    }
+    
     get x(): number | null {
         return this.sprite?.x ?? null;
     }
